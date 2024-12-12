@@ -1,0 +1,172 @@
+{
+    "default": [
+        {
+            "lounge": "Departure First Class lounge",
+            "rank": 2,
+            "guests": 2,
+            "match": {
+                    "status": "diamond"
+                }
+        },
+        {
+            "lounge": "Departure First Class lounge",
+            "rank": 2,
+            "guests": 1,
+            "match": {
+                    "status": "emerald"
+                }
+        },
+        {
+            "lounge": "Departure Business Class lounge",
+            "rank": 1,
+            "guests": 2,
+            "match": {
+                    "status": "diamond"
+                }
+        },
+        {
+            "lounge": "Departure Business Class lounge",
+            "rank": 1,
+            "guests": 1,
+            "match": {
+                    "status": "emerald"
+                }
+        },
+        {
+            "lounge": "Departure First Class lounge",
+            "rank": 2,
+            "guests": 1,
+            "match": {
+                    "cabin": "first"
+                }
+        },
+        {
+            "lounge": "Departure Business Class lounge",
+            "rank": 1,
+            "guests": 1,
+            "match": {
+                    "cabin": "first"
+                }
+        },
+        {
+            "lounge": "Departure Business Class lounge",
+            "rank": 1,
+            "guests": 1,
+            "match": {
+                    "status": "gold"
+                }
+        },
+        {
+            "lounge": "Departure Business Class lounge",
+            "rank": 1,
+            "guests": 1,
+            "match": {
+                    "status": "sapphire"
+                }
+        },
+        {
+            "lounge": "Departure Business Class lounge",
+            "rank": 1,
+            "guests": 0,
+            "match": {
+                    "cabin": "business"
+                }
+        },
+        {
+            "lounge": "Departure Business Class lounge",
+            "rank": 1,
+            "guests": 0,
+            "match": {
+                    "status": "silver"
+                }
+        }
+    ],
+    "claim": [
+        {
+            "status": "green",
+            "points_required": 200,
+            "number_of_passes": 1,
+            "lounge": "business",
+            "eligibility": "self or travel companion (on the same booking or flying on the same date with the same origin and destination)"
+        },
+        {
+            "status": "silver",
+            "points_required": 450,
+            "number_of_passes": 2,
+            "lounge": "business",
+            "eligibility": "travel companion (on the same booking or flying on the same date with the same origin and destination)"
+        },
+        {
+            "status": "gold",
+            "points_required": 800,
+            "number_of_passes": 2,
+            "lounge": "business",
+            "eligibility": "travel companion (on the same booking or flying on the same date with the same origin and destination) or redemption group nominee"
+        },
+        {
+            "status": "diamond",
+            "points_required": 1400,
+            "number_of_passes": 2,
+            "lounge": "first or business",
+            "eligibility": "travel companion (on the same booking or flying on the same date with the same origin and destination) or redemption group nominee"
+        }
+    ],
+    "purchase": [
+        {
+            "status": "green",
+            "eligibility": "not applicable"
+        },
+        {
+            "status": "silver",
+            "eligibility": "travel companions on the same booking",
+            "price": "USD75 / HKD600",
+            "airports": "PVG, YVR, HND, MNL"
+        },
+        {
+            "status": "gold",
+            "eligibility": "travel companions on the same booking",
+            "price": "USD75 / HKD600",
+            "airports": "PVG, YVR, HND, MNL"
+        },
+        {
+            "status": "diamond",
+            "eligibility": "travel companions on the same booking",
+            "price": "USD75 / HKD600",
+            "airports": "PVG, YVR, HND, MNL"
+        }
+    ],
+    "redeem": [
+        {
+            "status": "green",
+            "eligiblity": "not applicable"
+        },
+        {
+            "status": "silver",
+            "eligibility": "member self, friends or family",
+            "business": {
+                "airports": "BKK, HKG, LHR, MNL, CDG (temporarily closed), SFO, PVG, SIN, TPE, HND, NRT, YVR",
+                "price": "11,000 AM"
+            }
+        },
+        {
+            "status": "gold",
+            "eligibility": "member self, friends or family",
+            "business": {
+                "airports": "BKK, HKG, LHR, MNL, CDG (temporarily closed), SFO, PVG, SIN, TPE, HND, NRT, YVR",
+                "price": "11,000 AM"
+            }
+        },
+        {
+            "status": "diamond",
+            "eligibility": "member self, friends or family",
+            "business": {
+                "airports": "BKK, HKG, LHR, MNL, CDG (temporarily closed), SFO, PVG, SIN, TPE, HND, NRT, YVR",
+                "price": "11,000 AM"
+            },
+            "first": {
+                "airports": "HKG, LHR",
+                "price": "15,000 AM"
+            }
+        }
+    ]
+}

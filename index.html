@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lounge Eligibility</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Lounge Eligibility</h1>
+        <div class="status">
+            <h3>Membership status</h3>
+            <div class="cathay-status">
+                <input type="radio" name="status" id="non-member" value="non-member"><label for="non-member">Non-member</label></input>
+                <input type="radio" name="status" id="green" value="green"><label for="green">Green</label></input>
+                <input type="radio" name="status" id="silver" value="silver"><label for="silver">Silver</label></input>
+                <input type="radio" name="status" id="gold" value="gold"><label for="gold">Gold</label></input>
+                <input type="radio" name="status" id="diamond" value="diamond"><label for="diamond">Diamond</label></input>
+            </div>
+            <div class="oneworld-status">
+                <input type="radio" name="status" id="ruby" value="ruby"><label for="ruby">Ruby</label></input>
+                <input type="radio" name="status" id="sapphire" value="sapphire"><label for="sapphire">Sapphire</label></input>
+                <input type="radio" name="status" id="emerald" value="emerald"><label for="emerald">Emerald</label></input>
+            </div>
+        </div>
+        <div class="cabin">
+            <h3>Cabin booked</h3>
+            <input type="radio" name="cabin" id="economy" value="economy"><label for="economy">Economy</label></input>
+            <input type="radio" name="cabin" id="premium" value="premium"><label for="premium">Premium Economy</label></input>
+            <input type="radio" name="cabin" id="business" value="business"><label for="business">Business</label></input>
+            <input type="radio" name="cabin" id="first" value="first"><label for="first">First</label></input>
+        </div>
+        <div class="buttons">
+            <button onclick="run()">Run</button>
+            <button onclick="reset()">Reset</button>
+        </div>
+        <div class="default"></div>
+        <div class="pass">
+            <ul></ul>
+        </div>
+    </div>
+</body>
+<script src="script.js"></script>
+
+</html>
