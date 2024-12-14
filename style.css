@@ -42,7 +42,7 @@ label {
 
 .highlight {
     background-color: #ffffb5;
-    padding: 2px;
+    padding: 1px;
 }
 
 h3 {
@@ -63,4 +63,10 @@ button {
     border: none;
     padding: 8px 20px;
     border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #2d70f7;
 }

@@ -13,8 +13,8 @@ function formatAnswer(condition){
         condition.guests === 1 ? 'and 1 guest' : `and ${condition.guests} guests`;
 
 
-    return `Entry to ${condition.lounge}
-    Passenger ${guests}.
+    return `<br>Entry to ${condition.lounge}<br>
+    Passenger ${guests}.<br>
     `;
 }
 
@@ -38,12 +38,13 @@ const findMostGuests = (arr) => {
 
 const claimPassInfo = async (status) => {
     // claim lounge passes
+    const srcLink = 'https://www.cathaypacific.com/cx/en_HK/membership/benefits/mid-status-benefits/lounge-pass.html';
     const lp = await fetchConditions('claim');
     const lpStatusMatch = lp.find(l => l.status === status);
     if (!lpStatusMatch) return '';
     console.log(lpStatusMatch);
     return `
-    <b>Claim lounge passes (mid-tier benefit):</b>
+    <b><a href="${srcLink}" target="_blank">Claim lounge passes</a> (mid-tier benefit):</b>
     Upon gathering <span class="highlight">${lpStatusMatch.points_required} points</span>, ${lpStatusMatch.status} member can get <span class="highlight">${lpStatusMatch.number_of_passes} ${lpStatusMatch.number_of_passes === 1 ? 'pass' : 'passes'}</span> to ${lpStatusMatch.lounge} lounge for ${lpStatusMatch.eligibility}.
     Valid before flights marketed and operated by Cathay Pacific.
     `;
@@ -51,6 +52,7 @@ const claimPassInfo = async (status) => {
 
 const purchasePassInfo = async (status) => {
     // purchase lounge passes
+    const srcLink = 'https://www.cathaypacific.com/cx/en_HK/manage-booking/travel-extras/lounge-pass.html';
     const purchaseLp = await fetchConditions('purchase');
     const purchaseFindStatus = purchaseLp.find(l => l.status === status);
     if (!purchaseFindStatus) return '';
@@ -61,7 +63,7 @@ const purchasePassInfo = async (status) => {
         `;
     }
     return `
-    <b>Purchase lounge passes:</b>
+    <b><a href="${srcLink}" target="_blank">Purchase lounge passes:</a></b>
     Eligible for ${purchaseFindStatus.eligibility} and departing on flights marketed and operated by Cathay.
     Available for <span class="highlight">${purchaseFindStatus.price}</span> on select airports: ${purchaseFindStatus.airports}.
     `;
@@ -69,20 +71,21 @@ const purchasePassInfo = async (status) => {
 
 const redeemPassInfo = async (status) => {
     // redeem lounge pass
+    const srcLink = 'https://www.cathaypacific.com/content/cx/en_HK/frequent-flyers/redeem-asia-miles/flight-and-service-awards/redeem-worldwide-lounge-access.html';
     const redeemLp = await fetchConditions('redeem');
     const redeemFindStatus = redeemLp.find(l => l.status === status);
     if (!redeemFindStatus) return '';
     console.log(redeemFindStatus);
     if (status === 'green'){
-        return `<b>Redeem lounge pass:</b>
+        return `<b><a href="${srcLink}" target="_blank">Redeem lounge pass:</a></b>
         Not applicable for green members.
         `;
     }
     return `
-    <b>Redeem lounge pass:</b>
+    <b><a href="${srcLink}" target="_blank">Redeem lounge pass:</a></b>
     Eligible for ${redeemFindStatus.eligibility} and departing on flights with any airline.
-    ${redeemFindStatus.first ? `First class lounges in ${redeemFindStatus.first.airports} for ${redeemFindStatus.first.price}.` : ''} 
-    Business class lounges in ${redeemFindStatus.business.airports} for ${redeemFindStatus.business.price}.
+    ${redeemFindStatus.first ? `First class lounges in ${redeemFindStatus.first.airports} for <span class="highlight">${redeemFindStatus.first.price}</span>.` : ''} 
+    Business class lounges in ${redeemFindStatus.business.airports} for <span class="highlight">${redeemFindStatus.business.price}</span>.
     `;
 }
 
@@ -133,17 +136,24 @@ const run = async () => {
             break;
     }
 
-    outputElement.innerText = outcome;
+
+    
+
+
 
     if (outcome === ''){
         outputElement.classList.remove('positive', 'neutral', 'negative');
         outputElement.classList.add('negative');
         outputElement.innerHTML =
-        `No complimentary lounge access.<br>
+        `No complimentary Cathay lounge access.<br>
 
-        Buy access to lounge / shower / private resting area (nap room) on <a href="https://www.plazapremiumlounge.com" target="_blank">plazapremiumlounge.com</a>
+        Buy access to external lounges / shower / private resting area (nap room) on <a href="https://www.plazapremiumlounge.com" target="_blank">plazapremiumlounge.com</a>
         `;
     } else {
+        const admitLink = 'https://www.cathaypacific.com/cx/en_HK/destinations/lounges/all-lounges-admittance.html';
+        outcome = `<a href="${admitLink}" target="_blank"><h4>Lounge Admittance</h4></a>` + outcome;
+    
+        outputElement.innerHTML = outcome;
         outputElement.classList.remove('positive', 'neutral', 'negative'); 
         outputElement.classList.add('positive');
     }
@@ -156,7 +166,9 @@ const run = async () => {
     pass.innerHTML += purchaseContent.length === 0 ? '' : `<li>${purchaseContent}</li>`;
     pass.innerHTML += redeemContent.length === 0 ? '' : `<li>${redeemContent}</li>`;
 
-
+    if (pass.innerText.length > 0){
+        pass.innerHTML = '<h3>Additional options:</h3><br>' + pass.innerHTML;
+    }
 }
 
 const reset = () => {
